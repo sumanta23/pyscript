@@ -69,7 +69,7 @@ def activate_venv():
 
 
 def read_requirements():
-    rfile = open(get_requirements_file().'r').readline()
+    rfile = open(get_requirements_file(),'r').readline()
     print(rfile)
     content = [line.rstrip('\n').rstrip('\r') for line in open(get_requirements_file(),'r').readlines()]
     return content
