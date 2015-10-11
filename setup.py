@@ -76,7 +76,7 @@ create_venv()
 activate_venv()
 reload_imports()
 require=read_requirements()
-print require
+print(require)
 
 
 setup(
