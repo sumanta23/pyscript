@@ -10,7 +10,7 @@ class MyTestCase(unittest.TestCase):
         r = Reader("google.com",443)
         x509 = r.get_server_cert()
         var = str(x509.get_subject())
-        print var
+        print(var)
         self.assertTrue("*.google.com" in var.lower(),"Subject does not match")
 
 
