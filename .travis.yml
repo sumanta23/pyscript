@@ -7,6 +7,6 @@ python:
   - "3.4"
   - "3.5"
 # command to install dependencies
-install: "pip install virtualenv; python setup.py develop"
+install: "pip install virtualenv && python setup.py develop && pyhton setup.py bdist_wheel"
 # command to run tests
-script: "python setup.py bdist_wheel"
+script: "python setup.py test"
