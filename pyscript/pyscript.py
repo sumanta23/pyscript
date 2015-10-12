@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import requests
-import urllib
 
 from terminal import *
 

@@ -54,9 +54,9 @@ class PyTerminal():
             else:
                 raise e
 
-	if self.is_download_present() is True:
+        if self.is_download_present() is True:
             logging.info("Download request")
-            bytes = self._get_bytes(self._response.text) 
+            bytes = self._get_bytes(self._response.text)
             return bytes
 
         if self._response.status_code is 200:
@@ -93,10 +93,10 @@ class PyTerminal():
     def _set_se_urls(self, url):
         self._uri_server_command_execute = url + '/Certificate/rest/certapi/execute/'
         self._uri_server_command_download = url + '/Certificate/rest/certapi/download/'
-       
+
     def _se_command_post(self, command, file_in=None):
         logging.debug('POST command request')
-        
+
         file_data = {'name': 'command', 'command': command}
         req_data = None
 
@@ -127,7 +127,7 @@ class CommandOutput():
     """
      Class representing the output of the command execution
     """
-    
+
 
     def __init__(self, response, http_code, success, terminal=None):
         """

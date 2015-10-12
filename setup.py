@@ -5,7 +5,6 @@ import sys
 import virtualenv
 from imp import reload
 from codecs import open
-from shutil import copyfile
 from os.path import join
 from setuptools import setup, find_packages
 
@@ -69,15 +68,15 @@ def activate_venv():
 
 
 def read_requirements():
-    rfile = open(get_requirements_file(),'r').readline()
+    rfile = open(get_requirements_file(), 'r').readline()
     print(rfile)
-    content = [line.rstrip('\n').rstrip('\r') for line in open(get_requirements_file(),'r').readlines()]
+    content = [line.rstrip('\n').rstrip('\r') for line in open(get_requirements_file(), 'r').readlines()]
     return content
 
 create_venv()
 activate_venv()
 reload_imports()
-require=read_requirements()
+require = read_requirements()
 print(require)
 
 
@@ -94,6 +93,7 @@ setup(
         'coverage',
         'mock',
         'responses'],
+    test_suite="tests",
     author="sumanta",
     description="python scripting support",
     license="",
