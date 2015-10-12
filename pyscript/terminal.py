@@ -5,7 +5,7 @@ from time import sleep
 import json
 import requests
 
-from exceptions import *
+from . import *
 
 logging.basicConfig(filename='terminal.log', level=logging.DEBUG)
 
@@ -161,8 +161,8 @@ class CommandOutput():
                                 table rows are single strings with tabs delimiting columns
         """
         logging.debug('get_output')
-	logging.debug(self._http_response_code)
-	logging.debug(self._success)
+        logging.debug(self._http_response_code)
+        logging.debug(self._success)
         if not self._success:
             logging.warn('There is no output to parse, because command execution failed: raising IllegalStateException')
             raise IllegalStateException('There is no output to parse, because command execution failed')
