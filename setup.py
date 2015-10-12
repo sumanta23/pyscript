@@ -66,10 +66,13 @@ def activate_venv():
         code = compile(f.read(), get_activate_file(), 'exec')
         exec(code, dict(__file__=get_activate_file()))
 
+def read_version():
+    from __version__ import version
+    print("Project Version:  " + version)
+    return version
 
 def read_requirements():
     rfile = open(get_requirements_file(), 'r').readline()
-    print(rfile)
     content = [line.rstrip('\n').rstrip('\r') for line in open(get_requirements_file(), 'r').readlines()]
     return content
 
@@ -77,12 +80,12 @@ create_venv()
 activate_venv()
 reload_imports()
 require = read_requirements()
-print(require)
+
 
 
 setup(
     name="pyscript",
-    version='0.1',
+    version=read_version(),
     packages=find_packages(),
     zip_safe=False,
     platforms='any',
