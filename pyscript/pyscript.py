@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import requests
 import logging
-from . import terminal
+from .terminal import PyTerminal
 
 
 requests.packages.urllib3.disable_warnings()
