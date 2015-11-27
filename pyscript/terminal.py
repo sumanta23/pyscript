@@ -82,13 +82,14 @@ class PyTerminal():
     def _get_bytes(self, file_id):
         logging.debug('Downloading file from Server')
         response = self._se_download_result(file_id)
+        filename = response.headers['content-disposition'].split("\"")[1]
         buf = bytearray()
         for b in response.iter_content():
             if not b:
                 break
             buf.extend(b)
         logging.debug('Wrote {} bytes to memory'.format(len(buf)))
-        return buf
+        return filename,buf
 
     def _set_se_urls(self, url):
         self._uri_server_command_execute = url + '/Certificate/rest/certapi/execute/'
