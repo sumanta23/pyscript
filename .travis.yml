@@ -6,7 +6,7 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
-before_install : chmod +x integration_stop.sh; ./integration_start.sh
+before_install : chmod +x integration_start.sh; ./integration_start.sh
 # command to install dependencies
 install: "pip install virtualenv && python setup.py develop && python setup.py bdist_wheel"
 # command to run tests
