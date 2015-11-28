@@ -32,6 +32,7 @@ class TermTest(unittest.TestCase):
         serialno = None
         fd = open("commands",'rb')
         for line in fd.readlines():
+            print(type(line))
             if rstr in line:
                 line = line.replace(rstr,serialno)
             print('executing: ' + line)
