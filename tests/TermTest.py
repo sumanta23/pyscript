@@ -16,7 +16,7 @@ class TermTest(unittest.TestCase):
                 handle.write(content)
         else:
             line = response.get_output()
-            print line
+            print(line)
             return line
 
         pyscript.close(session)
@@ -34,7 +34,7 @@ class TermTest(unittest.TestCase):
         for line in fd.readlines():
             if rstr in line:
                 line = line.replace(rstr,serialno)
-            print 'executing: ' + line
+            print('executing: ' + line)
             res = self.exe(line)
             if res is not None and len(res) > 6:
                 res = unicodedata.normalize('NFKD',res).encode('ascii','ignore')
