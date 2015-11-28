@@ -1,0 +1,3 @@
+create rootca -validity 3 -cn MYRootCA
+list rootca
+export -cat keystore rootca -serialno <serialno> -filename der.p12 -format p12
