@@ -22,7 +22,7 @@ class TermTest(unittest.TestCase):
         pyscript.close(session)
 
     def fetchSerialNo(self,res):
-        serialno = res
+        serialno = res.decode("utf-8")
         s = serialno.split('\t')
         s=s[2]
         return s
@@ -32,7 +32,7 @@ class TermTest(unittest.TestCase):
         serialno = None
         fd = open("commands",'rb')
         for line in fd.readlines():
-            line = str(line, "utf-8")
+            line = line.decode("utf-8")
             if rstr in line:
                 line = line.replace(rstr,serialno)
             print('executing: ' + line)
