@@ -1,3 +1,14 @@
 create rootca -validity 3 -cn MYRootCA
 list rootca
-export -cat keystore rootca -serialno <serialno> -filename der.p12 -format p12
+export -cat keystore rootca -serialno <serialno> -filename rootca.p12 -format p12
+export -cat certificate rootca -serialno <serialno> -filename rootca.crt -format crt
+
+create ca -issuer <serialno> -validity 3 -cn MySubCA
+list ca
+export -cat certificate ca -serialno <serialno> -filename ca.crt -format crt
+
+create certificate -issuer <serialno> -validity 3 -cn enitity1
+list certificate
+export -cat certificate certificate -serialno <serialno> -filename entity.crt -format crt
+export -cat keystore certificate -serialno <serialno> -filename entity.jks -format jks
+export -cat keystore certificate -serialno <serialno> -filename entity.p12 -format p12
